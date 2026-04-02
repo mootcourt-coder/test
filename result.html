@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🎉 Thank You!</h1>
+  <h3 id="status">Test Successfully Submitted</h3>
+  <h2 id="score"></h2>
+</div>
+
+<script>
+let score = localStorage.getItem("score");
+let auto = localStorage.getItem("autoSubmit");
+
+if(auto){
+  document.getElementById("status").innerText =
+  "Test auto-submitted due to tab switch";
+}
+
+document.getElementById("score").innerText =
+"Your Score: " + score + " / 50";
+
+localStorage.clear();
+</script>
+
+</body>
+</html>

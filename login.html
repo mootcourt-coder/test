@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>🔐 Login</h2>
+
+  <input type="text" id="name" placeholder="Enter Full Name">
+  <input type="text" id="team" placeholder="Enter Team Code">
+
+  <button onclick="startTest()">Start Test</button>
+</div>
+<script>
+function startTest(){
+
+  let name = document.getElementById("name").value.trim();
+  let team = document.getElementById("team").value.trim();
+
+  if(!name || !team){
+    alert("Fill all details");
+    return;
+  }
+
+  localStorage.setItem("user", JSON.stringify({name, team}));
+
+  // store time properly
+  localStorage.setItem("endTime", Date.now() + 3600000);
+
+  window.location.href = "test.html";
+}
+</script>
